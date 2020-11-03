@@ -10,6 +10,7 @@
     "dev:server": "tsnd --inspect --transpile-only src/server.ts"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
     "express": "^4.17.1",
     "uuid": "^8.3.1"
   },

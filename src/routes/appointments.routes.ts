@@ -1,11 +1,17 @@
 import { parseISO, startOfHour } from 'date-fns'
 import { Router } from 'express'
 
-import AppointmentRepository from '../repositories/AppointmentsRepository'
+import AppointmentsRepository from '../repositories/AppointmentsRepository'
 
 const appointmentsRouter = Router()
 
-const appointmentsRepository = new AppointmentRepository()
+const appointmentsRepository = new AppointmentsRepository()
+
+appointmentsRouter.get('/', (request, response) => {
+  const appointments = appointmentsRepository.all()
+
+  return response.json(appointments)
+})
 
 appointmentsRouter.post('/', (request, response) => {
   const { provider, date } = request.body

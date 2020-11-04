@@ -7,7 +7,7 @@ interface CreateAppointmentDTO {
   date: Date
 }
 
-export default class AppointmentRepository {
+export default class AppointmentsRepository {
   private appointments: Appointment[]
 
   constructor() {

@@ -20,6 +20,9 @@ export default class User {
   @Column()
   password: string
 
+  @Column()
+  avatar: string
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date
 

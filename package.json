@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "tsc",
-    "dev:server": "tsnd --inspect --transpile-only src/server.ts"
+    "dev:server": "tsnd --inspect --transpile-only src/server.ts",
+
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "date-fns": "^2.16.1",

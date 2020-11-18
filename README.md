@@ -112,4 +112,4 @@ Esse projeto está sobre a licensa MIT - veja o arquivo [LICENSE](LICENSE) para 
 
 ---
 
-Feito com 💜 &nbsp;por Alexsandro G Bezerra 👋 &nbsp;[Veja meu Linkedin](https://www.linkedin.com/in/eliasgcf/)
+Feito com 💜 &nbsp;por Alexsandro G Bezerra 👋 &nbsp;[Veja meu Linkedin](https://www.linkedin.com/in/AlexsandroBezerra)

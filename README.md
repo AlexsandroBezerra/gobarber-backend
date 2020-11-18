@@ -3,23 +3,23 @@
 ## :construction: Área em construção :construction:
 
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AlexSRH/gobarber-backend?color=%23FF9000">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AlexsandroBezerra/gobarber-backend?color=%23FF9000">
 
   <a href="https://www.linkedin.com/in/alexsandrobezerra/" target="_blank" rel="noopener noreferrer">
     <img alt="Made by" src="https://img.shields.io/badge/made%20by-Alexsandro%20G%20Bezerra-%23FF9000">
   </a>
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/AlexSRH/gobarber-backend?color=%23FF9000">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/AlexsandroBezerra/gobarber-backend?color=%23FF9000">
 
-  <a href="https://github.com/EliasGcf/gobarber-api/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/AlexSRH/gobarber-backend?color=%23FF9000">
+  <a href="https://github.com/AlexsandroBezerra/gobarber-backend/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/AlexsandroBezerra/gobarber-backend?color=%23FF9000">
   </a>
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/AlexSRH/gobarber-backend?color=%23FF9000">
+  <img alt="GitHub" src="https://img.shields.io/github/license/AlexsandroBezerra/gobarber-backend?color=%23FF9000">
 </p>
 
 <p id="insomnia-button" align="center">
-  <a href="https://insomnia.rest/run/?label=GoBarber-API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexSRH%2Fgobarber-backend%2Fmain%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://insomnia.rest/run/?label=GoBarber-API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fgobarber-backend%2Fmain%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 ## Sobre o projeto
@@ -60,7 +60,7 @@ Importe o arquivo `Insomnia.json` no App do Insomnia ou clique no botão [Run in
 ### Faça um clone do projeto e acesse a pasta
 
 ```bash
-$ git clone https://github.com/AlexSRH/gobarber-backend.git
+$ git clone https://github.com/AlexsandroBezerra/gobarber-backend.git
 $ cd gobarber-backend
 ```
 

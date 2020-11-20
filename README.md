@@ -19,7 +19,7 @@
 </p>
 
 <p id="insomnia-button" align="center">
-  <a href="https://insomnia.rest/run/?label=GoBarber-API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fgobarber-backend%2Fmain%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://insomnia.rest/run/?label=GoBarber-API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fgobarber-backend%2Fmain%2FInsomnia.json" target="_blank" rel="noopener noreferrer"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 ## Sobre o projeto

@@ -55,34 +55,34 @@ Importe o arquivo `Insomnia.json` no App do Insomnia ou clique no botão [Run in
 
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/)
-- Uma instancia do [PostgreSQL](https://www.postgresql.org/)
+- Uma instância do [PostgreSQL](https://www.postgresql.org/)
 
 ### Faça um clone do projeto e acesse a pasta
 
 ```bash
-$ git clone https://github.com/AlexsandroBezerra/gobarber-backend.git
-$ cd gobarber-backend
+git clone https://github.com/AlexsandroBezerra/gobarber-backend.git
+cd gobarber-backend
 ```
 
 **Siga os passos a seguir**
 
 ```bash
 # Instale as dependências
-$ yarn
+yarn
 
-# Crie uma instancia do Postgres com o docker
-$ docker run --name gobarber-postgres -e POSTGRES_USER=docker \
+# Crie uma instância do Postgres com o docker
+docker run --name gobarber-postgres -e POSTGRES_USER=docker \
               -e POSTGRES_DB=gobarber -e POSTGRES_PASSWORD=docker \
               -p 5432:5432 -d postgres
 
 # Abra o arquivo ormconfig.json e configure a conexão com o banco
-$ code ormconfig.json
+code ormconfig.json
 
 # Após a conexão configurada. Rode as "migrations"
-$ yarn typeorm migration:run
+yarn typeorm migration:run
 
 # Finalmente, rode a API
-$ yarn dev:server
+yarn dev:server
 ```
 ## 🤔 Como contribuir?
 
@@ -104,12 +104,12 @@ $ git commit -m 'feat: My new feature'
 $ git push origin my-feature
 ```
 
-Depois do Pull Request ser aceito, você pode deletar a sua branch.
+Depois do Pull Request ser aceito, você pode excluir a sua branch.
 
 ## 📝 License
 
-Esse projeto está sobre a licensa MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Esse projeto está sobre a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
-Feito com 💜 &nbsp;por Alexsandro G Bezerra 👋 &nbsp;[Veja meu Linkedin](https://www.linkedin.com/in/AlexsandroBezerra)
+Feito com 💜 &nbsp;por Alexsandro G Bezerra 👋 &nbsp;[Veja meu LinkedIn](https://www.linkedin.com/in/AlexsandroBezerra)

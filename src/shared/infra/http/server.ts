@@ -4,11 +4,11 @@ import cors from 'cors'
 import express, { NextFunction, Request, Response } from 'express'
 import 'express-async-errors'
 
-import AppError from './errors/AppError'
-import uploadConfig from './config/upload'
+import uploadConfig from '@config/upload'
+import AppError from '@shared/errors/AppError'
 import routes from './routes'
 
-import './database'
+import '@shared/infra/typeorm'
 
 const app = express()
 const PORT = process.env.PORT || 3333

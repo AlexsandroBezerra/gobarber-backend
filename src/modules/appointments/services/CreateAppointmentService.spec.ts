@@ -5,11 +5,12 @@ import CreateAppointmentService from './CreateAppointmentService'
 describe('CreateAppointment', () => {
   it('should be able to create a new appointment', async () => {
     const fakeAppointmentsRepository = new FakeAppointmentsRepository()
-    const createAppointmentService = new CreateAppointmentService(
+
+    const createAppointment = new CreateAppointmentService(
       fakeAppointmentsRepository
     )
 
-    const appointment = await createAppointmentService.execute({
+    const appointment = await createAppointment.execute({
       date: new Date(),
       providerId: '123'
     })
@@ -20,19 +21,20 @@ describe('CreateAppointment', () => {
 
   it('should not be able to create two appointment on the same date', async () => {
     const fakeAppointmentsRepository = new FakeAppointmentsRepository()
-    const createAppointmentService = new CreateAppointmentService(
+
+    const createAppointment = new CreateAppointmentService(
       fakeAppointmentsRepository
     )
 
     const appointmentDate = new Date(2020, 10, 27, 9)
 
-    await createAppointmentService.execute({
+    await createAppointment.execute({
       date: appointmentDate,
       providerId: '123'
     })
 
     expect(
-      createAppointmentService.execute({
+      createAppointment.execute({
         date: appointmentDate,
         providerId: '123'
       })

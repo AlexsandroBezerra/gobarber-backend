@@ -1,7 +1,7 @@
 import IStorageProvider from '../models/IStorageProvider'
 
 export default class FakeStorageProvider implements IStorageProvider {
-  storage: string[]
+  storage: string[] = []
 
   public async saveFile(file: string): Promise<string> {
     this.storage.push(file)

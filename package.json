@@ -5,10 +5,10 @@
   "repository": "git@github.com:AlexSRH/gobarber-backend.git",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/server.js",
     "build": "tsc",
-    "dev:server": "tsnd --inspect --transpile-only src/server.ts",
-    "typeorm": "tsnd ./node_modules/typeorm/cli.js"
+    "dev:server": "tsnd --inspect -r tsconfig-paths/register --transpile-only src/shared/infra/http/server.ts",
+    "start": "ts-node src/shared/infra/http/server.ts",
+    "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +20,7 @@
     "multer": "^1.4.2",
     "pg": "^8.4.2",
     "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.4.0",
     "typeorm": "^0.2.29",
     "uuid": "^8.3.1"
   },
@@ -42,6 +43,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "prettier": "^2.1.2",
     "ts-node-dev": "^1.0.0",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.0.5"
   }
 }

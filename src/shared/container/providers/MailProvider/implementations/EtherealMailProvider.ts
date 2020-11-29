@@ -50,7 +50,7 @@ export default class EtherealMailProvider implements IMailProvider {
     })
 
     // console.log('Message sent: %s', message.messageId)
-    console.log(`[RecoveryPassword: ${to}]`)
+    console.log(`[RecoveryPassword: ${to.email}]`)
     console.log(`Preview URL: ${nodemailer.getTestMessageUrl(message)}`)
   }
 }

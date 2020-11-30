@@ -1,10 +1,11 @@
 import { v4 as uuid } from 'uuid'
-import { isEqual } from 'date-fns'
+import { isEqual, getMonth, getYear } from 'date-fns'
 
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository'
 import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointmentDTO'
 
 import Appointment from '../../infra/typeorm/entities/Appointment'
+import IFindAllInMouthFromProvider from '@modules/appointments/dtos/IFindAllInMouthFromProviderDTO'
 
 export default class AppointmentsRepository implements IAppointmentsRepository {
   private appointments: Appointment[] = []
@@ -15,6 +16,21 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
     )
 
     return findAppointment
+  }
+
+  public async findAllInMouthFromProvider({
+    providerId,
+    mouth,
+    year
+  }: IFindAllInMouthFromProvider): Promise<Appointment[]> {
+    const appointments = this.appointments.filter(
+      appointment =>
+        providerId === appointment.providerId &&
+        getMonth(appointment.date) + 1 === mouth &&
+        getYear(appointment.date) === year
+    )
+
+    return appointments
   }
 
   public async create({

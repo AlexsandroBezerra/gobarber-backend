@@ -34,7 +34,7 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
         providerId,
         date: Raw(
           dateField =>
-            `to_char(${dateField}, 'MM-YYY) = '${parsedMouth}--${year}'`
+            `to_char(${dateField}, 'MM-YYY') = '${parsedMouth}-${year}'`
         )
       }
     })
@@ -56,7 +56,7 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
         providerId,
         date: Raw(
           dateField =>
-            `to_char(${dateField}, 'DD-MM-YYYY) = '${parsedDay}-${parsedMouth}--${year}'`
+            `to_char(${dateField}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMouth}-${year}'`
         )
       }
     })

@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer'
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
 
@@ -11,7 +12,7 @@ export default class ProfileController {
 
     const user = await showProfile.execute({ userId })
 
-    return response.json({ ...user, password: undefined })
+    return response.json(classToClass(user))
   }
 
   async update(request: Request, response: Response): Promise<Response> {
@@ -27,6 +28,6 @@ export default class ProfileController {
       oldPassword
     })
 
-    return response.json({ ...user, password: undefined })
+    return response.json(classToClass(user))
   }
 }

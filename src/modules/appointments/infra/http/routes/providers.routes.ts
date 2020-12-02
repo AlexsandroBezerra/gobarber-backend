@@ -1,3 +1,4 @@
+import { celebrate, Segments, Joi } from 'celebrate'
 import { Router } from 'express'
 
 import ProvidersController from '../controllers/ProvidersController'
@@ -16,10 +17,20 @@ providersRouter.get('/', providersController.index)
 
 providersRouter.get(
   '/:providerId/mouth-availability',
+  celebrate({
+    [Segments.PARAMS]: {
+      providerId: Joi.string().uuid().required()
+    }
+  }),
   providerMouthAvailabilityController.index
 )
 providersRouter.get(
   '/:providerId/day-availability',
+  celebrate({
+    [Segments.PARAMS]: {
+      providerId: Joi.string().uuid().required()
+    }
+  }),
   providerDayAvailabilityController.index
 )
 

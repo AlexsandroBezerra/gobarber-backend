@@ -38,8 +38,6 @@ export default class ListProviderAppointmentsService {
       return cachedAppointments
     }
 
-    console.log('banco')
-
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         providerId,

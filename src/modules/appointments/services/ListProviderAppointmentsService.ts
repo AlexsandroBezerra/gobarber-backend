@@ -28,6 +28,18 @@ export default class ListProviderAppointmentsService {
     year,
     day
   }: IRequest): Promise<Appointment[]> {
+    const cacheKey = `provider-appointments:${providerId}:${year}-${mouth}-${day}`
+
+    const cachedAppointments = await this.cacheProvider.recover<Appointment[]>(
+      cacheKey
+    )
+
+    if (cachedAppointments) {
+      return cachedAppointments
+    }
+
+    console.log('banco')
+
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         providerId,
@@ -37,7 +49,7 @@ export default class ListProviderAppointmentsService {
       }
     )
 
-    await this.cacheProvider.save('asd', 'dsa')
+    await this.cacheProvider.save(cacheKey, appointments)
 
     return appointments
   }

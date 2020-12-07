@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "commit": "cz",
     "dev:server": "tsnd --inspect -r tsconfig-paths/register --transpile-only src/shared/infra/http/server.ts",
     "start": "ts-node src/shared/infra/http/server.ts",
     "test": "jest",
@@ -50,6 +51,7 @@
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
+    "commitizen": "^4.2.2",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-standard": "^16.0.1",

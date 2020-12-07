@@ -1,6 +1,14 @@
-# GoBarber
+<h1 align="center">
+	<img alt="GoStack" src=".github/assets/logo.svg" width="200px" />
+</h1>
 
-## :construction: Área em construção :construction:
+
+<h3 align="center">
+  Express Application for GoBarber project
+</h3>
+
+<p align="center">The best way to schedule your service!</p>
+
 
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AlexsandroBezerra/gobarber-backend?color=%23FF9000">
@@ -18,21 +26,37 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/AlexsandroBezerra/gobarber-backend?color=%23FF9000">
 </p>
 
+<p align="center">
+  <a href="#about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#license">License</a>
+</p>
+
+
 <p id="insomnia-button" align="center">
   <a href="https://insomnia.rest/run/?label=GoBarber-API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fgobarber-backend%2Fmain%2FInsomnia.json" target="_blank" rel="noopener noreferrer"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
-## Sobre o projeto
+## :construction: Under development :construction:
 
-Essa API prover tudo que precisa para organizar compromissos entre barbeiros e clientes.
+## 💁 About the project
 
-O clientes podem escolher o melhor tempo disponível para eles.
+This api provides everything needed to organize appointments between the barbers and customers.
 
-Os provedores de serviço podem ver todos os compromissos marcados, gerenciar o time, e ver se um cliente cancelou o agendamento.
+Customers can choose the best time available to them.
 
-## Tecnologias
+Providers can see all their appointments, manage the times, also see if one client canceled the schedule.
 
-Tecnologias usadas para desenvolver esse projeto:
+### :link: Useful links
+
+To see the **GoBarber web client**, [click here](https://github.com/AlexsandroBezerra/gobarber-web) <br />
+To see the **GoBarber mobile client**, [click here](https://github.com/AlexsandroBezerra/gobarber-mobile)
+
+## Technologies
+
+Technologies that I used to develop this web client:
 
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -47,69 +71,88 @@ Tecnologias usadas para desenvolver esse projeto:
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
 
-## Começando
+## 💻 Getting started
 
-Importe o arquivo `Insomnia.json` no App do Insomnia ou clique no botão [Run in Insomnia](#insomnia-button)
+Import the `Insomnia.json` on Insomnia App or click on [Run in Insomnia](#insomnia-button) button
 
-## Requisitos
+### Requirements
 
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/)
-- Uma instância do [PostgreSQL](https://www.postgresql.org/)
+- One instance of [PostgreSQL](https://www.postgresql.org/)
 
-### Faça um clone do projeto e acesse a pasta
+> Obs.: I recommend use docker
+
+**Clone the project and access the folder**
 
 ```bash
-git clone https://github.com/AlexsandroBezerra/gobarber-backend.git
-cd gobarber-backend
+$ git clone https://github.com/AlexsandroBezerra/gobarber-backend.git && cd gobarber-backend
 ```
 
-**Siga os passos a seguir**
+**Follow the steps below**
 
 ```bash
-# Instale as dependências
-yarn
+# Install the dependencies
+$ yarn
 
-# Crie uma instância do Postgres com o docker
-docker run --name gobarber-postgres -e POSTGRES_USER=docker \
+# Make a copy of '.env.example' to '.env'
+# and set with YOUR environment variables.
+# The aws variables do not need to be filled for dev environment
+$ cp .env.example .env
+
+# Create the instance of postgreSQL using docker
+$ docker run --name gobarber-postgres -e POSTGRES_USER=docker \
               -e POSTGRES_DB=gobarber -e POSTGRES_PASSWORD=docker \
               -p 5432:5432 -d postgres
 
-# Abra o arquivo ormconfig.json e configure a conexão com o banco
-code ormconfig.json
+# Create the instance of mongoDB using docker
+$ docker run --name gobarber-mongodb -p 27017:27017 -d -t mongo
 
-# Após a conexão configurada. Rode as "migrations"
-yarn typeorm migration:run
+# Create the instance of redis using docker
+$ docker run --name gobarber-redis -p 6379:6379 -d -t redis:alpine
 
-# Finalmente, rode a API
-yarn dev:server
+# Once the services are running, run the migrations
+$ yarn typeorm migration:run
+
+# To finish, run the api service
+$ yarn dev:server
+
+# Well done, project is started!
 ```
-## 🤔 Como contribuir?
 
-1. **Faça um fork desse repositório**
-
-2. **Siga os passos abaixo**
+## 🤔 How to contribute?
+**Make a fork of this repository**
 
 ```bash
-# Faça um clone do seu fork e entre na pasta
-$ git clone your-fork-url && cd gobarber-backend
+# Fork using GitHub official command line
+# If you don't have the GitHub CLI, use the web site to do that.
 
-# Crie uma nova branch com a sua nova feature
+$ gh repo fork AlexsandroBezerra/gobarber-backend
+```
+
+**Follow the steps below**
+
+```bash
+# Clone your fork
+$ git clone your-fork-url && cd gobarber-api
+
+# Create a branch with your feature
 $ git checkout -b my-feature
 
-# Faça um commit com suas mudanças
+# Make the commit with your changes
 $ git commit -m 'feat: My new feature'
 
-# Envie o código para sua branch remota
+# Send the code to your remote branch
 $ git push origin my-feature
 ```
 
-Depois do Pull Request ser aceito, você pode excluir a sua branch.
+After your pull request is merged, you can delete your branch
+
 
 ## 📝 License
 
-Esse projeto está sobre a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-Feito com 💜 &nbsp;por Alexsandro G Bezerra 👋 &nbsp;[Veja meu LinkedIn](https://www.linkedin.com/in/AlexsandroBezerra)
+Made with :purple_heart: by Alexsandro G Bezerra :wave: &nbsp;[See my Linkedin](https://www.linkedin.com/in/alexsandrobezerra)

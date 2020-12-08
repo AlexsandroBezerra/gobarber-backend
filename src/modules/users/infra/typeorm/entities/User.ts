@@ -8,6 +8,8 @@ import {
 
 import { Exclude, Expose } from 'class-transformer'
 
+import uploadConfig from '@config/upload'
+
 @Entity('users')
 export default class User {
   @PrimaryGeneratedColumn('uuid')
@@ -34,8 +36,14 @@ export default class User {
 
   @Expose({ name: 'avatarUrl' })
   getAvatarUrl(): string | null {
-    return this.avatar
-      ? `${process.env.APP_API_URL}/files/${this.avatar}`
-      : null
+    if (!this.avatar) {
+      return null
+    }
+
+    if (uploadConfig.driver === 's3') {
+      return `https://${uploadConfig.config.aws.bucket}.s3.amazonaws.com/${this.avatar}`
+    }
+
+    return `${process.env.APP_API_URL}/files/${this.avatar}`
   }
 }

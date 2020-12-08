@@ -6,16 +6,16 @@ import ListProviderMouthAvailabilityService from '@modules/appointments/services
 export default class ProviderMouthAvailabilityController {
   async index(request: Request, response: Response): Promise<Response> {
     const { providerId } = request.params
-    const { mouth, year } = request.body
+    const { mouth, year } = request.query
 
     const listProviderDayAvailability = container.resolve(
       ListProviderMouthAvailabilityService
     )
 
     const availability = await listProviderDayAvailability.execute({
-      mouth,
       providerId,
-      year
+      mouth: Number(mouth),
+      year: Number(year)
     })
 
     return response.json(availability)

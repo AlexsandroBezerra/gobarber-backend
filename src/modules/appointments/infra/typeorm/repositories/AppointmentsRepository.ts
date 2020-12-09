@@ -61,7 +61,8 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
           dateField =>
             `to_char(${dateField}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMouth}-${year}'`
         )
-      }
+      },
+      relations: ['user']
     })
 
     return appointments

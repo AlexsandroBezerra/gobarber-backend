@@ -18,5 +18,8 @@
       "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"]
     }
-  }
+  },
+  "include": [
+    "src/*"
+  ]
 }

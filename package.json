@@ -2,7 +2,8 @@
   "name": "gobarber-backend",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:AlexSRH/gobarber-backend.git",
+  "repository": "git@github.com:AlexsandroBezerra/gobarber-backend.git",
+  "author": "Alexsandro G Bezerra <alexsandro.g.bezerra@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",

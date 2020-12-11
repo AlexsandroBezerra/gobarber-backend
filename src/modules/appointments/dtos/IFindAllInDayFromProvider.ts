@@ -3,7 +3,7 @@ export default interface IFindAllInDayFromProvider {
 
   day: number
 
-  mouth: number
+  month: number
 
   year: number
 }

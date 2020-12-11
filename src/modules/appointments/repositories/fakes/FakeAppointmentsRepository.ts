@@ -5,7 +5,7 @@ import IAppointmentsRepository from '@modules/appointments/repositories/IAppoint
 import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointmentDTO'
 
 import Appointment from '../../infra/typeorm/entities/Appointment'
-import IFindAllInMouthFromProvider from '@modules/appointments/dtos/IFindAllInMouthFromProviderDTO'
+import IFindAllInMonthFromProvider from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO'
 import IFindAllInDayFromProvider from '@modules/appointments/dtos/IFindAllInDayFromProvider'
 
 export default class AppointmentsRepository implements IAppointmentsRepository {
@@ -23,15 +23,15 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
     return findAppointment
   }
 
-  public async findAllInMouthFromProvider({
+  public async findAllInMonthFromProvider({
     providerId,
-    mouth,
+    month,
     year
-  }: IFindAllInMouthFromProvider): Promise<Appointment[]> {
+  }: IFindAllInMonthFromProvider): Promise<Appointment[]> {
     const appointments = this.appointments.filter(
       appointment =>
         providerId === appointment.providerId &&
-        getMonth(appointment.date) + 1 === mouth &&
+        getMonth(appointment.date) + 1 === month &&
         getYear(appointment.date) === year
     )
 
@@ -41,14 +41,14 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
   async findAllInDayFromProvider({
     providerId,
     day,
-    mouth,
+    month,
     year
   }: IFindAllInDayFromProvider): Promise<Appointment[]> {
     const appointments = this.appointments.filter(
       appointment =>
         providerId === appointment.providerId &&
         getDate(appointment.date) === day &&
-        getMonth(appointment.date) + 1 === mouth &&
+        getMonth(appointment.date) + 1 === month &&
         getYear(appointment.date) === year
     )
 

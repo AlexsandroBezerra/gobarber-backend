@@ -3,26 +3,26 @@ import { Router } from 'express'
 
 import ProvidersController from '../controllers/ProvidersController'
 import ProviderDayAvailabilityController from '../controllers/ProviderDayAvailabilityController'
-import ProviderMouthAvailabilityController from '../controllers/ProviderMouthAvailabilityController'
+import ProviderMonthAvailabilityController from '../controllers/ProviderMonthAvailabilityController'
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated'
 
 const providersRouter = Router()
 const providersController = new ProvidersController()
 const providerDayAvailabilityController = new ProviderDayAvailabilityController()
-const providerMouthAvailabilityController = new ProviderMouthAvailabilityController()
+const providerMonthAvailabilityController = new ProviderMonthAvailabilityController()
 
 providersRouter.use(ensureAuthenticated)
 
 providersRouter.get('/', providersController.index)
 
 providersRouter.get(
-  '/:providerId/mouth-availability',
+  '/:providerId/month-availability',
   celebrate({
     [Segments.PARAMS]: {
       providerId: Joi.string().uuid().required()
     }
   }),
-  providerMouthAvailabilityController.index
+  providerMonthAvailabilityController.index
 )
 providersRouter.get(
   '/:providerId/day-availability',

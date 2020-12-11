@@ -1,7 +1,7 @@
 import Appointment from '../infra/typeorm/entities/Appointment'
 
 import ICreateAppointmentDTO from '../dtos/ICreateAppointmentDTO'
-import IFindAllInMouthFromProviderDTO from '../dtos/IFindAllInMouthFromProviderDTO'
+import IFindAllInMonthFromProviderDTO from '../dtos/IFindAllInMonthFromProviderDTO'
 import IFindAllInDayFromProvider from '../dtos/IFindAllInDayFromProvider'
 
 export default interface IAppointmentsRepository {
@@ -9,8 +9,8 @@ export default interface IAppointmentsRepository {
 
   findByDate(date: Date, providerId: string): Promise<Appointment | undefined>
 
-  findAllInMouthFromProvider(
-    date: IFindAllInMouthFromProviderDTO
+  findAllInMonthFromProvider(
+    date: IFindAllInMonthFromProviderDTO
   ): Promise<Appointment[]>
 
   findAllInDayFromProvider(

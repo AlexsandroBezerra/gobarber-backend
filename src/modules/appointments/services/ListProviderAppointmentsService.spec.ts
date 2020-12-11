@@ -33,7 +33,7 @@ describe('ListProviderAppointmentsService', () => {
     const appointments = await listProviderAppointmentsService.execute({
       providerId: 'provider-id',
       year: 2020,
-      mouth: 4,
+      month: 4,
       day: 20
     })
 

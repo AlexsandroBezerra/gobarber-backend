@@ -105,5 +105,5 @@ dist
 
 !.gitkeep
 
-uploads/*
+tmp/uploads/*
 ormconfig.json

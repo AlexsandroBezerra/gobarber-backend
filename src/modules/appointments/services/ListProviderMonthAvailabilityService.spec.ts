@@ -1,19 +1,19 @@
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository'
-import ListProviderMouthAvailabilityService from './ListProviderMouthAvailabilityService'
+import ListProviderMonthAvailabilityService from './ListProviderMonthAvailabilityService'
 
-let listProviderMouthAvailability: ListProviderMouthAvailabilityService
+let listProviderMonthAvailability: ListProviderMonthAvailabilityService
 let fakeAppointmentsRepository: FakeAppointmentsRepository
 
-describe('ListProviderMouthAvailabilityService', () => {
+describe('ListProviderMonthAvailabilityService', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository()
 
-    listProviderMouthAvailability = new ListProviderMouthAvailabilityService(
+    listProviderMonthAvailability = new ListProviderMonthAvailabilityService(
       fakeAppointmentsRepository
     )
   })
 
-  it('should be able to list the mouth availability from a provider', async () => {
+  it('should be able to list the month availability from a provider', async () => {
     await fakeAppointmentsRepository.create({
       providerId: 'provider-id',
       userId: 'user-id',
@@ -71,10 +71,10 @@ describe('ListProviderMouthAvailabilityService', () => {
       date: new Date(2020, 3, 21, 17, 0, 0)
     })
 
-    const availability = await listProviderMouthAvailability.execute({
+    const availability = await listProviderMonthAvailability.execute({
       providerId: 'provider-id',
       year: 2020,
-      mouth: 4
+      month: 4
     })
 
     expect(availability).toEqual(

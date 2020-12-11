@@ -5,7 +5,7 @@ import IAppointmentsRepository from '../repositories/IAppointmentsRepository'
 
 interface IRequest {
   providerId: string
-  mouth: number
+  month: number
   year: number
   day: number
 }
@@ -25,14 +25,14 @@ export default class ListProviderDayAvailabilityService {
   public async execute({
     providerId,
     day,
-    mouth,
+    month,
     year
   }: IRequest): Promise<IResponse> {
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         providerId,
         day,
-        mouth,
+        month,
         year
       }
     )
@@ -51,7 +51,7 @@ export default class ListProviderDayAvailabilityService {
         appointment => getHours(appointment.date) === hour
       )
 
-      const compareDate = new Date(year, mouth - 1, day, hour)
+      const compareDate = new Date(year, month - 1, day, hour)
 
       return {
         hour,

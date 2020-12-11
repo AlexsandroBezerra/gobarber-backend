@@ -8,7 +8,7 @@ import Appointment from '../infra/typeorm/entities/Appointment'
 
 interface IRequest {
   providerId: string
-  mouth: number
+  month: number
   year: number
   day: number
 }
@@ -25,11 +25,11 @@ export default class ListProviderAppointmentsService {
 
   public async execute({
     providerId,
-    mouth,
+    month,
     year,
     day
   }: IRequest): Promise<Appointment[]> {
-    const cacheKey = `provider-appointments:${providerId}:${year}-${mouth}-${day}`
+    const cacheKey = `provider-appointments:${providerId}:${year}-${month}-${day}`
 
     const cachedAppointments = await this.cacheProvider.recover<Appointment[]>(
       cacheKey
@@ -42,7 +42,7 @@ export default class ListProviderAppointmentsService {
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         providerId,
-        mouth,
+        month,
         year,
         day
       }

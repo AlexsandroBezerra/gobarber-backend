@@ -4,7 +4,7 @@ import IAppointmentsRepository from '@modules/appointments/repositories/IAppoint
 
 import Appointment from '../entities/Appointment'
 import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointmentDTO'
-import IFindAllInMouthFromProvider from '@modules/appointments/dtos/IFindAllInMouthFromProviderDTO'
+import IFindAllInMonthFromProvider from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO'
 import IFindAllInDayFromProvider from '@modules/appointments/dtos/IFindAllInDayFromProvider'
 
 export default class AppointmentsRepository implements IAppointmentsRepository {
@@ -25,19 +25,19 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
     return findAppointment
   }
 
-  public async findAllInMouthFromProvider({
+  public async findAllInMonthFromProvider({
     providerId,
-    mouth,
+    month,
     year
-  }: IFindAllInMouthFromProvider): Promise<Appointment[]> {
-    const parsedMouth = String(mouth).padStart(2, '0')
+  }: IFindAllInMonthFromProvider): Promise<Appointment[]> {
+    const parsedMonth = String(month).padStart(2, '0')
 
     const appointments = await this.ormRepository.find({
       where: {
         providerId,
         date: Raw(
           dateField =>
-            `to_char(${dateField}, 'MM-YYY') = '${parsedMouth}-${year}'`
+            `to_char(${dateField}, 'MM-YYY') = '${parsedMonth}-${year}'`
         )
       }
     })
@@ -48,18 +48,18 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
   async findAllInDayFromProvider({
     providerId,
     day,
-    mouth,
+    month,
     year
   }: IFindAllInDayFromProvider): Promise<Appointment[]> {
     const parsedDay = String(day).padStart(2, '0')
-    const parsedMouth = String(mouth).padStart(2, '0')
+    const parsedMonth = String(month).padStart(2, '0')
 
     const appointments = await this.ormRepository.find({
       where: {
         providerId,
         date: Raw(
           dateField =>
-            `to_char(${dateField}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMouth}-${year}'`
+            `to_char(${dateField}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMonth}-${year}'`
         )
       },
       relations: ['user']

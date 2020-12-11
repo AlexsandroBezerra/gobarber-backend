@@ -5,7 +5,7 @@ import IAppointmentsRepository from '../repositories/IAppointmentsRepository'
 
 interface IRequest {
   providerId: string
-  mouth: number
+  month: number
   year: number
 }
 
@@ -15,7 +15,7 @@ type IResponse = Array<{
 }>
 
 @injectable()
-export default class ListProviderMouthAvailabilityService {
+export default class ListProviderMonthAvailabilityService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository
@@ -23,26 +23,26 @@ export default class ListProviderMouthAvailabilityService {
 
   public async execute({
     providerId,
-    mouth,
+    month,
     year
   }: IRequest): Promise<IResponse> {
-    const appointments = await this.appointmentsRepository.findAllInMouthFromProvider(
+    const appointments = await this.appointmentsRepository.findAllInMonthFromProvider(
       {
         providerId,
         year,
-        mouth
+        month
       }
     )
 
-    const numberOfDaysInMouth = getDaysInMonth(new Date(year, mouth - 1))
+    const numberOfDaysInMonth = getDaysInMonth(new Date(year, month - 1))
 
     const eachDayArray = Array.from(
-      { length: numberOfDaysInMouth },
+      { length: numberOfDaysInMonth },
       (_, index) => index + 1
     )
 
     const availability = eachDayArray.map(day => {
-      const compareDate = new Date(year, mouth - 1, day, 23, 59, 59)
+      const compareDate = new Date(year, month - 1, day, 23, 59, 59)
 
       const appointmentsInDay = appointments.filter(
         appointment => getDate(appointment.date) === day

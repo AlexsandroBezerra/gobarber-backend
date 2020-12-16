@@ -5,6 +5,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -22,4 +23,5 @@
   "include": [
     "./src/**/*"
   ],
+
 }
